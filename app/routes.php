@@ -12,14 +12,7 @@
 */
 
 
-
-Route::get('/', function(){
-    return Redirect::to('home');    
-});
-Route::get('home', 'MainController@showHome');
-Route::get('about', 'MainController@showAbout');
-Route::get('articles', 'MainController@showArticles');
-Route::get('article/{id}', 'MainController@showArticle');
-Route::get('contact-us', 'MainController@showContact');
-Route::post('contact-us', 'MainController@contactForm');
-Route::get('thank-you', 'MainController@successForm');
+Route::get('/', 'ArtistController@showAllArtist');
+Route::get('artist/{id}', 'ArtistController@showOneArtist');
+Route::get('album/{$id}', 'AlbumController@showAllAlbum');
+Route::get('track/{id}', 'TrackController@showAllTrack');
