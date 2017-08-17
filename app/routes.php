@@ -14,5 +14,5 @@
 
 Route::get('/', 'ArtistController@showAllArtist');
 Route::get('artist/{id}', 'ArtistController@showOneArtist');
-Route::get('album/{$id}', 'AlbumController@showAllAlbum');
-Route::get('track/{id}', 'TrackController@showAllTrack');
+Route::get('album/{id}', 'AlbumController@showAlbum');
+Route::get('track/{id}', 'TrackController@showTrack');

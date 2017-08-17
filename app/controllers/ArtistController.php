@@ -4,9 +4,26 @@ class ArtistController extends BaseController
 {
     public function showAllArtist ()
     {
-        print_r(Artist::find(1));
-        $pageName = 'HOME';
-        return View::make('main.home', ['pageName' => $pageName]);
+        $pageName   = 'Artist';
+        $artists    = Artist::all();
+
+        return View::make('artist.home', [
+            'pageName'  => $pageName,
+            'artists'   => $artists
+        ]);
+    }
+
+    public function showOneArtist ($id)
+    {
+        $artist = Artist::find($id);
+        $albums = $artist->getAlbums()->get();
+
+        $pageName = $artist->Name.' ( ID '.$id. ' )';
+      
+        return View::make('artist.artist', [
+            'pageName'  => $pageName,
+            'albums'    => $albums
+        ]);
     }
 
    

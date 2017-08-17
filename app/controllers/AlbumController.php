@@ -2,11 +2,20 @@
 
 class AlbumController extends BaseController
 {
-    public function showAllAlbum ()
+    public function showAlbum ($id)
     {
-        $pageName = 'HOME';
-        return View::make('main.home', ['pageName' => $pageName]);
-    }
+        $album  = Album::find($id);
+        $tracks = $album->getTracks()->get();
+        $artist = $album->getArtist()->first();
 
+        $pageName    = $album->Title;
+        $albumArtist = $artist->Name;
+
+        return View::make('album.album', [
+            'pageName'    => $pageName,
+            'tracks'      => $tracks,
+            'albumArtist' => $albumArtist
+        ]);
+    }
 
 }

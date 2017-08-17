@@ -4,8 +4,11 @@ class GenreController extends BaseController
 {
     public function showHome ()
     {
-        $pageName = 'HOME';
-        return View::make('main.home', ['pageName' => $pageName]);
+        $pageName = 'Genre';
+        
+        return View::make('artist.home', [
+            'pageName' => $pageName
+        ]);
     }
 
    }
